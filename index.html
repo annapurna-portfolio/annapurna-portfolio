@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Annapurni Somasundaram — Senior UX/UI Designer</title>
+<meta name="description" content="Annapurni Somasundaram — Senior UX/UI Designer with 6+ years across enterprise and consumer products. Clients: ThoughtWorks, Dell, Vodafone, Renault." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161b; --ink-soft:#54555f; --ink-faint:#8a8b95;
+    --paper:#ffffff; --paper-2:#f7f7f4; --paper-3:#eef0f4;
+    --line:#e6e7ec; --line-strong:#d4d6df;
+    --ink2:#15161b; --ink-ink:#000;
+    --yellow:#f4d35e; --yellow-soft:#fdf6da; --yellow-line:#ecd690;
+    --accent:#15161b; --accent-soft:#f4f4f6;
+    --maxw:1140px; --measure:680px; --r:16px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;
+    font-feature-settings:"cv05" 1,"cv11" 1,"ss01" 1;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--yellow);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+  h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.08}
+  .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .lead{font-size:clamp(1.1rem,1.5vw,1.28rem);color:var(--ink-soft);line-height:1.6;max-width:var(--measure)}
+  p{margin:0 0 1em}
+  .hl{background:linear-gradient(180deg,transparent 58%,var(--yellow) 58%);padding:0 .08em;border-radius:2px}
+
+  /* scroll progress */
+  .progress{position:fixed;top:0;left:0;height:2.5px;background:var(--yellow);z-index:70;width:0%;
+    transition:width .12s linear;box-shadow:0 0 8px rgba(244,211,94,.5)}
+
+  /* nav */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(255,255,255,.78);
+    backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
+  .nav.scrolled{border-bottom-color:var(--line)}
+  .nav__in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px);height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{font-weight:600;font-size:.98rem;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:22px;height:22px;border-radius:6px;background:var(--ink);display:grid;place-items:center;color:var(--yellow);font-size:.74rem;font-weight:700;font-family:var(--serif)}
+  .nav__links{display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)}
+  .nav__links a{font-size:.92rem;color:var(--ink-soft);transition:color .2s var(--ease);position:relative}
+  .nav__links a:not(.nav__cta)::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--ink);transition:right .25s var(--ease)}
+  .nav__links a:not(.nav__cta):hover::after{right:0}
+  .nav__links a:hover{color:var(--ink)}
+  .nav__cta{font-size:.9rem;font-weight:500;color:#fff!important;background:var(--ink);padding:9px 17px;border-radius:100px}
+  .nav__cta:hover{background:#000}
+  .nav__toggle{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
+  @media (max-width:780px){
+    .nav__links{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;
+      background:rgba(255,255,255,.98);backdrop-filter:blur(20px);padding:8px clamp(20px,5vw,40px) 20px;border-bottom:1px solid var(--line);
+      transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s var(--ease)}
+    .nav__links.open{transform:none;opacity:1;pointer-events:auto}
+    .nav__links a{padding:13px 0;font-size:1.05rem;width:100%;border-bottom:1px solid var(--line)}
+    .nav__links .nav__cta{color:var(--ink)!important;background:none;padding:14px 0;border-radius:0}
+    .nav__toggle{display:flex}
+  }
+
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;font-weight:500;padding:12px 22px;border-radius:100px;
+    border:1px solid var(--line-strong);background:#fff;color:var(--ink);cursor:pointer;transition:.22s var(--ease)}
+  .btn:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .btn--solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn--solid:hover{background:#000;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
+  .btn svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
+
+  /* hero */
+  .hero{padding:calc(62px + clamp(56px,10vw,110px)) 0 clamp(50px,8vw,90px);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-14%;right:-6%;width:46vw;height:46vw;max-width:580px;max-height:580px;z-index:-1;
+    background:radial-gradient(circle,rgba(244,211,94,.4),rgba(244,211,94,.08) 55%,transparent 72%);filter:blur(6px)}
+  .hero__glow{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);
+    background:radial-gradient(560px circle at var(--gx,50%) var(--gy,20%),rgba(244,211,94,.16),transparent 62%)}
+  .hero__glow.on{opacity:1}
+  @media (pointer:coarse),(prefers-reduced-motion:reduce){.hero__glow{display:none}}
+  .hero__avail{display:inline-flex;align-items:center;gap:9px;font-size:.85rem;color:var(--ink-soft);border:1px solid var(--yellow-line);background:var(--yellow-soft);border-radius:100px;padding:6px 14px;margin-bottom:26px}
+  .hero__avail .pulse{width:7px;height:7px;border-radius:50%;background:#22a565;position:relative}
+  .hero__avail .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #22a565;opacity:.5}
+  .hero h1{font-size:clamp(2.7rem,8vw,6rem);font-weight:600;letter-spacing:-.04em;line-height:1}
+  .hero__role{font-size:clamp(1.05rem,2.1vw,1.3rem);font-weight:500;margin-top:18px}
+  .hero__tag{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,3.6vw,2.5rem);line-height:1.24;letter-spacing:-.015em;margin:24px 0 0;max-width:17ch}
+  .hero__intro{margin-top:28px;max-width:580px}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+  @media (prefers-reduced-motion:reduce){.hero__avail .pulse::after{display:none}}
+
+  .band{padding:clamp(60px,8vw,110px) 0}
+  .band--tint{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(34px,5vw,56px);max-width:var(--measure)}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;letter-spacing:-.03em}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:clamp(36px,5vw,68px)}
+  @media (min-width:920px){.about-grid{grid-template-columns:1.05fr .95fr;align-items:start}}
+  .about-body p{font-size:clamp(1.04rem,1.4vw,1.16rem);color:var(--ink-soft);max-width:var(--measure)}
+  .about-body strong{color:var(--ink);font-weight:600}
+  .portrait{margin-bottom:24px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 54px -36px rgba(20,20,40,.5);max-width:280px}
+  .portrait img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .portrait__cap{padding:14px 16px;border-top:1px solid var(--line);background:#fff}
+  .portrait__cap b{display:block;font-size:.92rem;font-weight:600;color:var(--ink)}
+  .portrait__cap span{font-size:.78rem;color:var(--ink-faint)}
+  .credential{display:flex;align-items:center;gap:12px;margin:0 0 24px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;max-width:280px}
+  .credential img{width:52px;height:52px;flex-shrink:0;object-fit:contain}
+  .credential b{display:block;font-size:.84rem;font-weight:600;color:var(--ink);line-height:1.3}
+  .credential span{font-size:.74rem;color:var(--ink-faint);line-height:1.4}
+  .timeline{margin-top:30px;border-top:1px solid var(--line)}
+  .tl{display:grid;grid-template-columns:128px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .tl .yr{font-size:.78rem;color:var(--ink-faint);letter-spacing:.02em;padding-top:2px}
+  .tl .ro b{font-weight:600;font-size:.97rem}
+  .tl .ro span{display:block;font-size:.86rem;color:var(--ink-soft);margin-top:2px}
+  @media (max-width:560px){.tl{grid-template-columns:1fr;gap:4px}}
+  .skills{display:flex;flex-direction:column;gap:16px}
+  .skillrow{border-top:1px solid var(--line);padding-top:13px}
+  .skillrow h5{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:0 0 9px}
+  .skillrow .ts{display:flex;flex-wrap:wrap;gap:7px}
+  .skillrow .t{font-size:.8rem;color:var(--ink);background:var(--paper-3);border-radius:100px;padding:4px 11px}
+  .skillrow.hot .t{background:var(--yellow-soft);border:1px solid var(--yellow-line)}
+  .band--tint .skillrow .t{background:#fff}
+  .facts{display:flex;flex-wrap:wrap;margin-top:24px;border-top:1px solid var(--line)}
+  .fact{flex:1 1 120px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .fact b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.5rem);letter-spacing:-.02em;line-height:1}
+  .fact b em{font-style:normal;background:linear-gradient(180deg,transparent 60%,var(--yellow) 60%)}
+  .fact span{font-size:.78rem;color:var(--ink-faint);letter-spacing:.03em}
+
+  /* work grid */
+  .work-grid{display:grid;grid-template-columns:1fr;gap:clamp(20px,3vw,30px)}
+  @media (min-width:720px){.work-grid{grid-template-columns:1fr 1fr}}
+  .card{display:block;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:border-color .25s var(--ease),box-shadow .3s var(--ease)}
+  .card:hover{border-color:var(--line-strong);box-shadow:0 22px 60px -38px rgba(20,20,40,.4)}
+  .card__thumb{aspect-ratio:16/10;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--cardgrad)}
+  .card__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
+  .card:hover .card__thumb img{transform:scale(1.045)}
+  .card__thumb .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,24,.04),rgba(8,10,24,.5))}
+  .card__thumb .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1px);background-size:22px 22px;opacity:.6}
+  .lockup{position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:11px;z-index:2}
+  .lockup .mark{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;font-weight:700;font-size:.92rem;font-family:var(--serif)}
+  .lockup .logo{height:36px;min-width:36px;max-width:124px;border-radius:9px;background:#fff;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;padding:4px 9px;box-shadow:0 4px 14px -8px rgba(0,0,0,.5)}
+  .lockup .logo img{max-height:26px;max-width:104px;width:auto;height:auto;object-fit:contain;display:block}
+  .lockup .lk b{display:block;color:#fff;font-weight:600;font-size:1rem;line-height:1.1}
+  .lockup .lk i{font-style:normal;color:rgba(255,255,255,.85);font-size:.75rem;letter-spacing:.03em}
+  .card__num{position:absolute;top:14px;right:16px;font-size:.74rem;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.8);z-index:2}
+  .badge{position:absolute;top:13px;left:16px;z-index:2;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--yellow);padding:3px 10px;border-radius:100px}
+  .card__thumb--logopanel{background:#fff;display:grid;place-items:center;padding:32px}
+  .card__thumb--logopanel img{max-height:64px;max-width:64%;width:auto;object-fit:contain;display:block}
+  .card__thumb--logopanel .card__num{color:var(--ink-faint)}
+  .card__badgelogo{position:absolute;right:16px;bottom:16px;z-index:2;background:#fff;border-radius:9px;padding:7px 12px;box-shadow:0 6px 18px -10px rgba(0,0,0,.5);display:flex;align-items:center}
+  .card__badgelogo img{height:22px;width:auto;max-width:150px;object-fit:contain;display:block}
+  .card__body{padding:20px 22px 22px}
+  .card__row{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+  .card__title{font-size:1.16rem;font-weight:600;letter-spacing:-.02em}
+  .card__year{font-size:.82rem;color:var(--ink-faint);white-space:nowrap}
+  .card__desc{font-size:.92rem;color:var(--ink-soft);margin:8px 0 14px;line-height:1.5}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px}
+  .tag{font-size:.72rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:3px 10px;background:var(--paper-2)}
+  .card__cta{font-size:.9rem;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:7px}
+  .card__cta svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+  .card:hover .card__cta svg{transform:translateX(4px)}
+
+  /* footer */
+  .footer{background:#0f1014;color:#e9e9ef;padding:clamp(60px,8vw,100px) 0 36px}
+  .footer a{color:#c8c8d2;transition:color .2s var(--ease)}
+  .footer a:hover{color:#fff}
+  .footer__top{display:grid;grid-template-columns:1fr;gap:44px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:48px}
+  @media (min-width:780px){.footer__top{grid-template-columns:1.4fr 1fr;align-items:start}}
+  .footer__big{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.14;letter-spacing:-.02em;color:#fff;max-width:16ch}
+  .footer__big em{font-style:italic;color:var(--yellow)}
+  .footer__cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .footer__cols h5{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8a96;font-weight:600;margin:0 0 12px}
+  .footer__cols a,.footer__cols span{display:block;padding:5px 0;font-size:.94rem;color:#c8c8d2}
+  .footer__bottom{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:24px;color:#8a8a96;font-size:.84rem}
+
+  /* case study */
+  .cs{display:none}
+  .cs__hero{padding:calc(62px + 32px) 0 clamp(30px,4vw,48px);background:var(--accent-soft);border-bottom:1px solid var(--line)}
+  .cs__crumb{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);font-size:.9rem;margin-bottom:24px}
+  .cs__crumb svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+  .cs__crumb:hover svg{transform:translateX(-4px)}
+  .cs__cover-in{padding:clamp(22px,3vw,40px) 0}
+  .cs__coverpanel{position:relative;overflow:hidden;border-radius:var(--r);border:1px solid var(--line);min-height:200px;aspect-ratio:24/7;display:grid;place-items:center}
+  .cs__coverpanel::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:26px 26px;opacity:.55}
+  .cs__coverlogo{position:relative;z-index:1;background:#fff;border-radius:16px;padding:22px clamp(26px,5vw,46px);box-shadow:0 26px 60px -34px rgba(0,0,0,.55)}
+  .cs__coverlogo img{max-height:74px;max-width:min(58vw,300px);width:auto;height:auto;object-fit:contain;display:block}
+
+  .heroband{padding:clamp(20px,3vw,36px) 0 0}
+  .heroband__frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px -40px rgba(20,20,40,.5)}
+  .heroband__frame img{display:block;width:100%}
+  .heroband figcaption{font-size:.86rem;color:var(--ink-faint);margin-top:12px;text-align:center}
+  @media (max-width:560px){.cs__coverpanel{aspect-ratio:16/9}.cs__coverlogo img{max-height:54px}}
+
+  /* rich hero cover (Polaris-style) */
+  .pcover{position:relative;overflow:hidden;border-radius:var(--r);border:1px solid var(--line);background:radial-gradient(circle at 78% 15%,#123844,#061a20 62%);padding:clamp(28px,4vw,52px) clamp(22px,4vw,48px) 0}
+  .pcover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:22px 22px;opacity:.5;pointer-events:none}
+  .pcover__grid{position:relative;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+  @media (min-width:880px){.pcover__grid{grid-template-columns:1.05fr .95fr;gap:10px}}
+  .pcover__eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .pcover__bar{width:44px;height:3px;background:var(--yellow);border-radius:2px;margin:14px 0 20px}
+  .pcover__logo{margin-bottom:22px}
+  .pcover__logo img{height:44px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.96}
+  .pcover__title{font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:600;letter-spacing:-.02em;line-height:1.18;color:#fff;max-width:16ch}
+  .pcover__lead{font-size:1rem;line-height:1.65;color:rgba(255,255,255,.72);max-width:46ch;margin-top:18px}
+  .pcover__right{position:relative;padding:6px 0 0}
+  .pcover__shot{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);transform:perspective(1400px) rotateY(-6deg) rotateX(2deg);transform-origin:left center}
+  .pcover__shot img{display:block;width:100%}
+  @media (max-width:879px){.pcover__shot{transform:none}}
+  .pcover__meta{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:clamp(28px,4vw,44px);padding:22px 0 clamp(22px,3.4vw,34px);border-top:1px solid rgba(255,255,255,.14)}
+  @media (min-width:700px){.pcover__meta{grid-template-columns:repeat(4,1fr)}}
+  .pcover__mi{display:flex;gap:12px;align-items:flex-start}
+  .pcover__mi svg{width:19px;height:19px;color:var(--yellow);flex-shrink:0;margin-top:2px}
+  .pcover__mi .lab{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;margin-bottom:3px}
+  .pcover__mi .val{font-size:.9rem;font-weight:600;color:#fff;line-height:1.35}
+  .cs__co{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:inline-flex;align-items:center;gap:10px}
+  .cs__co .pill{font-size:.62rem;letter-spacing:.1em;color:var(--ink);background:var(--yellow);padding:3px 9px;border-radius:100px}
+  .cs__title{font-size:clamp(2.1rem,5.4vw,3.7rem);font-weight:600;letter-spacing:-.035em;margin:12px 0 0;line-height:1.04}
+  .cs__sub{font-family:var(--serif);font-weight:300;font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:1.3;color:var(--ink-soft);margin-top:16px;max-width:30ch}
+  .cs__meta{display:flex;flex-wrap:wrap;margin-top:32px;border-top:1px solid var(--line-strong)}
+  .cs__meta .m{flex:1 1 120px;min-width:120px;padding:16px 0;border-bottom:1px solid var(--line-strong)}
+  .cs__meta .m span{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+  .cs__meta .m b{font-weight:500;font-size:.94rem}
+
+  .blk{padding:clamp(34px,4.5vw,56px) 0;border-bottom:1px solid var(--line)}
+  .blk:last-of-type{border-bottom:0}
+  .blk--tint{background:var(--paper-2)}
+  .blk__grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media (min-width:860px){.blk__grid{grid-template-columns:210px 1fr;gap:44px}}
+  .blk__side{display:flex;align-items:baseline;gap:11px}
+  .blk__n{font-family:var(--serif);font-weight:300;font-size:1rem;color:var(--ink-faint)}
+  .blk__side h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-weight:600;letter-spacing:-.02em}
+  .blk__body{max-width:760px}
+  .blk__body p{font-size:1.04rem;color:var(--ink-soft);line-height:1.68;margin:0 0 .9em}
+  .blk__body p:last-child{margin-bottom:0}
+  .blk__body ul{margin:0 0 1em;padding-left:0;list-style:none}
+  .blk__body li{position:relative;padding-left:22px;margin-bottom:.5em;line-height:1.55;color:var(--ink-soft)}
+  .blk__body li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--yellow);outline:1px solid var(--yellow-line)}
+  .blk__body strong{color:var(--ink);font-weight:600}
+  .blk__body h4{font-size:1rem;margin:1.2em 0 .4em;color:var(--ink)}
+  .pull{font-family:var(--serif);font-weight:300;font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.32;color:var(--ink);border-left:3px solid var(--yellow);padding:2px 0 2px 20px;margin:4px 0 18px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0}
+  .chip{font-size:.8rem;color:var(--ink);background:var(--paper-3);border:1px solid var(--line-strong);border-radius:100px;padding:5px 12px}
+
+  /* IA / data-model flow diagram */
+  .iaflow{margin:22px 0 6px;padding:24px clamp(16px,3vw,30px);background:#fff;border:1px solid var(--line);border-radius:14px}
+  .iaflow__row{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+  .iabox{min-width:100px;border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;font-size:.86rem;font-weight:600;color:var(--ink);background:#fff;text-align:center}
+  .iabox span{display:block;font-size:.72rem;font-weight:400;color:var(--ink-faint);margin-top:3px}
+  .iabox--accent{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb, var(--accent) 6%, #fff)}
+  .iabox--muted{border-color:var(--line-strong);color:var(--ink-soft);font-weight:500}
+  .iaarrow{color:var(--ink-faint);font-size:1.1rem;flex-shrink:0}
+  .iaflow__branch{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-strong)}
+  .iaflow__example{margin:18px 0 0;font-size:.88rem;color:var(--ink-soft);padding-top:14px;border-top:1px solid var(--line)}
+  @media (max-width:640px){.iaflow__row,.iaflow__branch{gap:6px}.iabox{min-width:80px;padding:8px 10px;font-size:.78rem}}
+  .hmw{text-align:center;padding:6px 0}
+  .hmw p{font-family:var(--serif);font-weight:300;font-size:clamp(1.35rem,3.1vw,2.15rem);line-height:1.4;color:var(--ink);max-width:26ch;margin:0 auto}
+  .hmw p em{font-style:normal;color:var(--accent)}
+  .blk--statement{padding-top:clamp(26px,3.4vw,40px);padding-bottom:clamp(26px,3.4vw,40px)}
+
+  /* before/after metrics comparison */
+  .cmp{display:grid;grid-template-columns:1fr;gap:16px;margin:20px 0 6px;align-items:center}
+  @media (min-width:760px){.cmp{grid-template-columns:1fr 44px 1.4fr}}
+  .cmp__col{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .cmp__tag{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:12px}
+  .cmp__table{width:100%;border-collapse:collapse;font-size:.86rem}
+  .cmp__table td{padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .cmp__table tr:last-child td{border-bottom:0}
+  .cmp__table td:last-child{text-align:right;font-weight:600;color:var(--ink)}
+  .cmp__arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);transform:rotate(90deg)}
+  @media (min-width:760px){.cmp__arrow{transform:none}}
+  .cmp__arrow svg{width:22px;height:22px}
+  .cmp__cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mcard{border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:var(--paper-2)}
+  .mcard__top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px}
+  .mcard__top span:first-child{font-size:.74rem;color:var(--ink-soft);font-weight:500}
+  .mcard__val{font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+  .mcard__spark{width:100%;height:22px;display:block}
+  .pill{font-size:.6rem;font-weight:700;letter-spacing:.03em;padding:2px 7px;border-radius:100px;white-space:nowrap}
+  .pill--high{background:#e4f3e9;color:#1f8a4c}
+  .pill--mod{background:#fdf1dc;color:#b3760f}
+  .pill--low{background:#fbe6e6;color:#c23a3a}
+
+  /* stakeholder research Q&A */
+  .qa{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+  .qa__item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+  .qa__q{font-size:.9rem;font-weight:600;color:var(--ink);display:flex;gap:9px}
+  .qa__q .n{color:var(--accent);flex-shrink:0}
+  .qa__a{font-size:.88rem;color:var(--ink-soft);margin-top:6px;padding-left:24px;line-height:1.55}
+
+  .ring{width:120px;height:120px;flex-shrink:0}
+  .gaugewrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:18px 0}
+  .gaugewrap__label{font-size:.86rem;color:var(--ink-soft);max-width:340px}
+  .gaugewrap__label b{display:block;color:var(--ink);font-size:.98rem;margin-bottom:4px}
+
+  .swatches{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0}
+  .swatch{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+  .swatch__chip{width:64px;height:64px;border-radius:12px;border:1px solid var(--line)}
+  .swatch__name{font-size:.76rem;color:var(--ink-soft);font-weight:500}
+  .swatch__hex{font-size:.72rem;color:var(--ink-faint);font-family:monospace}
+
+  .personas{display:grid;grid-template-columns:1fr;gap:14px;margin:18px 0}
+  @media (min-width:680px){.personas{grid-template-columns:repeat(3,1fr)}}
+  .persona{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+  .persona:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .persona__avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:1rem;color:#fff;margin-bottom:12px}
+  .persona__name{font-weight:600;font-size:.96rem;color:var(--ink)}
+  .persona__role{font-size:.76rem;color:var(--ink-faint);margin:2px 0 10px}
+  .persona__goal{font-size:.85rem;color:var(--ink-soft);line-height:1.5}
+
+  .principles{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 18px}
+  .principle{display:flex;align-items:center;gap:9px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:100px;padding:8px 15px 8px 11px}
+  .principle svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+  .principle b{font-size:.83rem;font-weight:600;color:var(--ink)}
+  .principle span{font-size:.8rem;color:var(--ink-soft);margin-left:2px}
+
+  .ednote{font-style:italic;color:var(--ink-soft);background:var(--paper-3);border-bottom:1px dashed var(--line-strong);padding:1px 5px;border-radius:4px;font-size:.95em}
+  .gallery-head{display:flex;align-items:baseline;gap:11px;margin-bottom:8px}
+  .gallery-head .blk__n{font-family:var(--serif);font-weight:300;font-size:1rem;color:var(--ink-faint)}
+  .gallery-head h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-weight:600;letter-spacing:-.02em}
+  .gallery-count{font-size:.78rem;color:var(--ink-faint);border:1px solid var(--line-strong);border-radius:100px;padding:3px 11px;white-space:nowrap}
+
+  .flow{position:relative;margin-top:30px;padding-left:60px}
+  .flow::before{content:"";position:absolute;left:21px;top:6px;bottom:6px;width:2px;
+    background:repeating-linear-gradient(180deg,var(--line-strong) 0 7px,transparent 7px 14px)}
+  .flow-step{position:relative;padding-bottom:48px}
+  .flow-step:last-child{padding-bottom:0}
+  .flow-step__num{position:absolute;left:-60px;top:0;width:42px;height:42px;border-radius:50%;
+    background:#fff;border:2px solid var(--accent);display:grid;place-items:center;z-index:2;
+    font-family:var(--serif);font-weight:600;color:var(--accent);font-size:.98rem;box-shadow:0 0 0 6px var(--paper-2)}
+  .blk .flow-step__num{box-shadow:0 0 0 6px var(--paper)}
+  .flow-step__eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin:2px 0 8px}
+  .flow-step__title{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:12px;max-width:640px}
+  .flow-arrow{position:absolute;left:-38px;bottom:14px;color:var(--line-strong);z-index:2;background:var(--paper-2);line-height:0}
+  .blk .flow-arrow{background:var(--paper)}
+  .flow-arrow svg{width:16px;height:16px;display:block}
+  .flow-step:last-child .flow-arrow{display:none}
+
+  .frame{border-radius:13px;overflow:hidden;background:#fff;border:1px solid var(--line);
+    box-shadow:0 20px 48px -36px rgba(20,20,40,.55);max-width:100%}
+  .frame--tall{max-width:340px}
+  .frame__bar{height:30px;background:var(--paper-3);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:6px;padding:0 12px;flex-shrink:0}
+  .frame__bar .d{width:8px;height:8px;border-radius:50%;background:var(--line-strong)}
+  .frame__bar .d.y{background:var(--yellow)}
+  .frame__bar .addr{flex:1;height:13px;background:var(--paper);border:1px solid var(--line);border-radius:4px;margin-left:8px;max-width:220px}
+  .frame__bar .notch{width:54px;height:5px;border-radius:3px;background:var(--line-strong);margin:0 auto}
+  .frame img{display:block;width:100%;height:auto}
+  .frame--plain{border:none;box-shadow:0 16px 40px -34px rgba(20,20,40,.4)}
+  .flow-step__desc{font-size:.92rem;color:var(--ink-soft);line-height:1.6;margin-top:13px;max-width:640px}
+  @media (max-width:560px){.flow{padding-left:44px}.flow-step__num{left:-44px;width:34px;height:34px;font-size:.82rem}.flow-arrow{left:-30px}}
+
+  .cs__nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:clamp(40px,5vw,64px) 0}
+  .cs__nav a{flex:1 1 240px}
+  .cs__nav .lab{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px}
+  .cs__nav .ttl{font-size:1.2rem;font-weight:600;letter-spacing:-.02em}
+  .cs__nav .next{text-align:right}
+
+  .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100}
+  .skip:focus{left:0}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#/" class="brand"><span class="dot">A</span>Annapurni Somasundaram</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#work">Work</a><a href="#about">About</a><a href="#" data-resume>Resume</a>
+      <a href="#contact">Contact</a><a href="#contact" class="nav__cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div id="home">
+  <section class="hero">
+    <div class="hero__glow" id="heroGlow"></div>
+    <div class="wrap">
+      <h1>Annapurni<br>Somasundaram</h1>
+      <div class="hero__role">Senior UX/UI Designer</div>
+      <p class="hero__tag serif">Designing thoughtful digital experiences that solve <span class="hl">complex business problems.</span></p>
+      <p class="hero__intro lead">Six years shaping enterprise and consumer products end to end — across telecom, finance, and SaaS — for clients like ThoughtWorks, Dell, Vodafone, and Renault. Currently designing an MRV engine for sustainability platforms at Carbon Chain India.</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#work">View selected work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#" data-resume>Download resume</a>
+        <a class="btn" href="#" data-linkedin>LinkedIn</a>
+        <a class="btn" href="#" data-email>Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--tint" id="work">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Selected work</span><h2>Case studies.</h2>
+        <p class="lead">Enterprise platforms, industrial tooling, data protection, gaming, and design systems — for global clients across a decade of product work.</p></div>
+      <div class="work-grid" id="workGrid"></div>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">About</span></div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>I'm a <strong>Senior UX/UI Designer with 6+ years</strong> across enterprise and consumer products in telecom, finance, and SaaS. I work end to end — research, prototyping, and usability testing — and have delivered for global clients including <strong>ThoughtWorks, Dell, Vodafone, and Renault</strong>.</p>
+          <p>Today I'm designing a <strong>Monitoring, Reporting &amp; Verification (MRV) engine</strong> at Carbon Chain India — simplifying complex carbon datasets into intuitive, data-driven experiences for sustainability platforms. I'm an <strong>HFI Certified Usability Analyst</strong> and treat accessibility and design systems as part of the craft, not an afterthought.</p>
+          <p>Most recently I've gone hands-on with <strong>AI/ML data annotation</strong> — bounding-box image annotation in CVAT and basic object-detection model training with YOLOv8 in Google Colab.</p>
+          <div class="timeline" id="timeline"></div>
+        </div>
+        <div>
+          <figure class="portrait">
+            <img src="assets/profile/portrait.jpg" alt="Annapurni Somasundaram">
+            <figcaption class="portrait__cap"><b>Annapurni Somasundaram</b><span>Senior UX/UI Designer · Pune, India &amp; UAE</span></figcaption>
+          </figure>
+          <div class="credential">
+            <img src="assets/profile/hfi_badge.png" alt="Human Factors International — Certified Usability Analyst badge">
+            <div><b>Certified Usability Analyst</b><span>Human Factors International · #2019-7477</span></div>
+          </div>
+          <div class="skills" id="skills"></div>
+          <div class="facts">
+            <div class="fact"><b><em>6+</em></b><span>YEARS IN UX/UI</span></div>
+            <div class="fact"><b id="projCount">12</b><span>PROJECTS</span></div>
+            <div class="fact"><b>4</b><span>GLOBAL CLIENTS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="cs" id="caseStudy"></div>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="btn btn--solid" data-email href="#" style="margin-top:4px"><span data-email-text>email</span></a>
+      </div>
+      <div class="footer__cols">
+        <div><h5>Navigate</h5><a href="#work">Work</a><a href="#about">About</a><a href="#" data-resume>Resume</a></div>
+        <div><h5>Connect</h5><a href="#" data-linkedin>LinkedIn</a><a href="#" data-email>Email</a><a href="tel:+919361347688">+91 93613 47688</a><a href="tel:+971586883133">+971 58 688 3133</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© <span id="yr"></span> Annapurni Somasundaram</span><span>Senior UX/UI Designer · Pune, India &amp; UAE</span></div>
+  </div>
+</footer>
+
+<script>
+const CONTACT = {
+  email:"annapurnas88@gmail.com",
+  linkedin:"https://www.linkedin.com/in/annapurni-somasundaram/",
+  resume:"assets/resume/Annapurni_Somasundaram_Resume.pdf"
+};
+const ASSETS = {};
+const R = (s)=> (ASSETS && ASSETS[s]) ? ASSETS[s] : s;
+const note = (t)=>`<span class="ednote">⟨ ${t} ⟩</span>`;
+const PB="assets/polaris/", T="assets/thumbs/";
+const CC_THUMB="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230b3d2e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232D7A3E%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22640%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Cg%20transform%3D%22translate%28180%2C60%29%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22150%22%20height%3D%22300%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cfd8d2%22/%3E%3Crect%20x%3D%2258%22%20y%3D%2212%22%20width%3D%2234%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%23e6ece8%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2234%22%20width%3D%2270%22%20height%3D%228%22%20rx%3D%223%22%20fill%3D%22%23bcc8c1%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2252%22%20width%3D%22114%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23cfd8d2%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2266%22%20width%3D%2254%22%20height%3D%227%22%20rx%3D%223%22%20fill%3D%22%23e6ece8%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2282%22%20width%3D%2280%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%23bcc8c1%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22120%22%20width%3D%22114%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23eef3f0%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22158%22%20width%3D%22114%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23eef3f0%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22196%22%20width%3D%22114%22%20height%3D%2226%22%20rx%3D%2213%22%20fill%3D%22%232D7A3E%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate%28360%2C60%29%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22150%22%20height%3D%22300%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cfd8d2%22/%3E%3Crect%20x%3D%2258%22%20y%3D%2212%22%20width%3D%2234%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%23e6ece8%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2234%22%20width%3D%2270%22%20height%3D%228%22%20rx%3D%223%22%20fill%3D%22%23bcc8c1%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2252%22%20width%3D%22114%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23cfd8d2%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2266%22%20width%3D%2254%22%20height%3D%227%22%20rx%3D%223%22%20fill%3D%22%23e6ece8%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2282%22%20width%3D%2280%22%20height%3D%2212%22%20rx%3D%223%22%20fill%3D%22%23bcc8c1%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22120%22%20width%3D%22114%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23eef3f0%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22158%22%20width%3D%22114%22%20height%3D%2230%22%20rx%3D%223%22%20fill%3D%22%23eef3f0%22/%3E%3Crect%20x%3D%2218%22%20y%3D%22196%22%20width%3D%22114%22%20height%3D%2226%22%20rx%3D%2213%22%20fill%3D%22%232D7A3E%22/%3E%3C/g%3E%3C/svg%3E";
+const LG="assets/logos/";
+const LOGOS = {carbonchain:LG+"carbonchain.svg",polaris:"assets/polaris2/logo.png",xact:LG+"xact.svg",chuet:LG+"chuet.png",hexaware:LG+"aspire.png","dell-a11y":LG+"dell.png",kamakshi:LG+"kamakshi.png"};
+const ACCENT = {carbonchain:"#0d7a78","dell-ppdm":"#007db8",polaris:"#0c4854",xact:"#1a7f8c",chuet:"#8a5a36",hexaware:"#9b4a52","dell-a11y":"#007db8"};
+const PZ="assets/polaris2/";
+const accentOf = (p)=> ACCENT[p.id] || p.accent;
+
+/* wireframes (CarbonChain) */
+const G={f:'#ffffff',line:'#d7d8de',bar:'#e7e8ee',bar2:'#eef0f4',ink:'#c2c4cc',accent:'#2D7A3E'};
+function phone(inner,cap){return {svg:`<svg viewBox="0 0 280 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${cap}"><rect x="8" y="6" width="264" height="528" rx="28" fill="${G.f}" stroke="${G.line}"/><rect x="118" y="18" width="44" height="7" rx="3.5" fill="${G.bar}"/><g transform="translate(24,42)">${inner}</g></svg>`,cap,tall:true};}
+const bar=(x,y,w,h,c)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${c||G.bar}"/>`;
+const cardr=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="none" stroke="${G.line}"/>`;
+const wfFarmerHome = phone(`${bar(0,0,90,9,G.ink)}<circle cx="218" cy="4" r="9" fill="${G.bar}"/>${cardr(0,22,232,86)}${bar(14,36,120,9,G.bar)}<text x="14" y="74" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="${G.ink}">128 tCO₂e</text>${bar(14,86,150,8,G.bar2)}${bar(0,122,110,9,G.ink)}${cardr(0,138,232,58)}${bar(14,150,70,8,G.bar)}${bar(14,166,120,7,G.bar2)}${bar(14,178,90,7,G.bar2)}${cardr(0,206,232,58)}${bar(14,218,70,8,G.bar)}${bar(14,234,120,7,G.bar2)}${bar(14,246,90,7,G.bar2)}<rect x="0" y="280" width="232" height="40" rx="20" fill="${G.accent}"/><text x="116" y="305" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">+ Add Farm</text>${cardr(0,360,232,40)}<g transform="translate(0,420)">${bar(8,0,32,22,G.bar)}${bar(66,0,32,22,G.bar2)}${bar(124,0,32,22,G.bar2)}${bar(182,0,32,22,G.bar2)}</g>`,"Farmer Home — the credits earned, current income, and farms at a glance.");
+const wfAddFarm = phone(`${bar(0,0,120,10,G.ink)}${bar(0,26,80,7,G.bar)}${cardr(0,38,232,30)}${bar(0,80,80,7,G.bar)}${cardr(0,92,232,30)}${bar(0,134,80,7,G.bar)}${cardr(0,146,232,30)}${bar(0,188,110,7,G.bar)}<g transform="translate(0,202)"><rect x="0" y="0" width="70" height="26" rx="13" fill="none" stroke="${G.line}"/><rect x="80" y="0" width="70" height="26" rx="13" fill="${G.bar}"/><rect x="160" y="0" width="70" height="26" rx="13" fill="none" stroke="${G.line}"/></g>${cardr(0,244,232,56)}<text x="116" y="277" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="${G.ink}">⤓ Upload farm photo</text><rect x="0" y="404" width="232" height="40" rx="20" fill="${G.accent}"/><text x="116" y="429" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Save Farm</text>`,"Add Farm — registering a new land parcel with size, crop, and location.");
+const wfIncome = phone(`${bar(0,0,100,10,G.ink)}${cardr(0,24,232,70)}${bar(14,38,90,8,G.bar)}<text x="14" y="76" font-family="Inter,sans-serif" font-size="24" font-weight="700" fill="${G.ink}">₹ 84,500</text>${bar(0,108,120,8,G.bar)}<g transform="translate(0,124)">${bar(6,60,22,20)}${bar(36,40,22,40)}${bar(66,20,22,60,G.accent)}${bar(96,46,22,34)}${bar(126,28,22,52)}${bar(156,52,22,28)}${bar(186,12,22,68,G.accent)}<line x1="0" y1="82" x2="218" y2="82" stroke="${G.line}"/></g>${cardr(0,228,110,52)}${bar(12,240,60,7,G.bar2)}${bar(12,254,40,9,G.bar)}${cardr(122,228,110,52)}${bar(134,240,60,7,G.bar2)}${bar(134,254,40,9,G.bar)}${cardr(0,296,232,46)}${bar(14,312,150,8,G.bar2)}`,"Income — lifetime earnings and the monthly trend behind them.");
+const wfBuyer = phone(`${cardr(0,0,232,70)}<text x="14" y="32" font-family="Inter,sans-serif" font-size="11" fill="${G.ink}">Verified Carbon Credits</text>${bar(14,44,160,8,G.bar)}${bar(0,86,140,10,G.ink)}${bar(0,106,200,7,G.bar2)}${bar(0,118,170,7,G.bar2)}<g transform="translate(0,138)"><rect x="0" y="0" width="56" height="22" rx="11" fill="${G.bar}"/><rect x="64" y="0" width="56" height="22" rx="11" fill="none" stroke="${G.line}"/><rect x="128" y="0" width="56" height="22" rx="11" fill="none" stroke="${G.line}"/></g>${cardr(0,172,232,40)}${bar(14,185,70,7,G.bar2)}<text x="200" y="197" text-anchor="end" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="${G.ink}">₹/credit</text>${bar(0,226,90,8,G.bar)}${bar(0,242,200,7,G.bar2)}${bar(0,254,180,7,G.bar2)}<rect x="0" y="404" width="232" height="40" rx="20" fill="${G.accent}"/><text x="116" y="429" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Buy Credits</text>`,"Buyer — project detail, verification, and purchase.");
+function webframe(inner,cap){return {svg:`<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${cap}"><rect x="6" y="6" width="888" height="508" rx="14" fill="${G.f}" stroke="${G.line}"/><rect x="6" y="6" width="888" height="44" rx="14" fill="${G.bar2}"/><rect x="6" y="40" width="888" height="10" fill="${G.bar2}"/>${bar(24,22,120,12,G.ink)}<circle cx="868" cy="28" r="9" fill="${G.bar}"/><rect x="6" y="50" width="180" height="464" fill="#fbfbfc" stroke="${G.line}"/><g transform="translate(24,72)">${bar(0,0,120,9,G.bar)}${bar(0,30,140,9,G.accent)}${bar(0,60,120,9,G.bar2)}${bar(0,90,130,9,G.bar2)}${bar(0,120,110,9,G.bar2)}${bar(0,150,125,9,G.bar2)}</g><g transform="translate(210,72)">${inner}</g></svg>`,cap,tall:false};}
+const wfAdmin = webframe(`${bar(0,0,180,14,G.ink)}${cardr(0,30,150,70)}${bar(14,44,90,8,G.bar2)}<text x="14" y="84" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="${G.ink}">1,204</text>${cardr(166,30,150,70)}${bar(180,44,90,8,G.bar2)}<text x="180" y="84" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="${G.ink}">38</text>${cardr(332,30,150,70)}${bar(346,44,90,8,G.bar2)}<text x="346" y="84" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="${G.accent}">12 pending</text>${bar(0,124,160,11,G.bar)}<rect x="0" y="146" width="650" height="34" fill="${G.bar2}"/>${bar(16,158,80,8,G.ink)}${bar(180,158,80,8,G.ink)}${bar(360,158,70,8,G.ink)}${bar(520,158,60,8,G.ink)}${[0,1,2,3].map(i=>`<g transform="translate(0,${188+i*40})"><rect x="0" y="0" width="650" height="34" fill="none" stroke="${G.line}"/>${bar(16,13,90,8,G.bar2)}${bar(180,13,100,8,G.bar2)}${bar(360,13,60,8,G.bar2)}<rect x="520" y="8" width="70" height="18" rx="9" fill="${i%2?G.bar:G.accent}"/></g>`).join('')}`,"Admin — verification queue, KPIs, and pending review count.");
+const wfLogin = phone(`${bar(60,4,110,9,G.ink)}<g transform="translate(0,34)"><circle cx="116" cy="34" r="30" fill="none" stroke="${G.line}"/><path d="M104 40 q12 -14 24 0" fill="none" stroke="${G.bar}" stroke-width="3"/></g>${bar(40,108,150,8,G.bar)}${bar(0,140,70,7,G.bar2)}${cardr(0,152,232,34)}<text x="12" y="174" font-family="Inter,sans-serif" font-size="11" fill="${G.ink}">+91  98XXX XXXXX</text><rect x="0" y="200" width="232" height="40" rx="20" fill="${G.accent}"/><text x="116" y="225" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#fff">Get OTP</text>${bar(0,270,90,7,G.bar2)}<g transform="translate(0,288)">${[0,1,2,3,4,5].map(i=>cardr(i*40,0,30,38)).join('')}</g>${bar(40,348,150,8,G.bar2)}`,"Login &amp; OTP — phone-number sign-in, built for first-time trust.");
+const wfFarmDetail = phone(`${bar(0,0,120,9,G.ink)}${cardr(0,20,232,70)}<text x="116" y="60" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="${G.ink}">satellite / farm photo</text>${bar(0,104,90,8,G.bar)}<rect x="120" y="100" width="112" height="22" rx="11" fill="#e7f3ec" stroke="${G.accent}"/><text x="176" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="${G.accent}">✓ Verified</text>${bar(0,134,200,7,G.bar2)}${bar(0,146,160,7,G.bar2)}${bar(0,176,120,8,G.bar)}<g transform="translate(0,192)">${bar(6,40,22,30)}${bar(36,24,22,46)}${bar(66,12,22,58,G.accent)}${bar(96,30,22,40)}${bar(126,18,22,52)}${bar(156,36,22,34)}<line x1="0" y1="72" x2="190" y2="72" stroke="${G.line}"/></g><rect x="0" y="300" width="112" height="38" rx="9" fill="none" stroke="${G.line}"/><text x="56" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="${G.ink}">Edit</text><rect x="120" y="300" width="112" height="38" rx="9" fill="${G.accent}"/><text x="176" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#fff">Submit data</text>`,"Farm detail — credits earned and MRV verification status.");
+const WF = {login:wfLogin,home:wfFarmerHome,addfarm:wfAddFarm,detail:wfFarmDetail,income:wfIncome,buyer:wfBuyer,admin:wfAdmin};
+
+/* ---------- flow renderer (used for both real screens and CarbonChain wireframes) ---------- */
+function splitCap(c){const i=c.indexOf(" — ");return i<0?[c,""]:[c.slice(0,i),c.slice(i+3)];}
+function frameHtml(mediaHtml,tall,plain){
+  const cls=['frame']; if(tall) cls.push('frame--tall'); if(plain) cls.push('frame--plain');
+  const chrome = plain ? '' : `<div class="frame__bar">${tall?'<span class="notch"></span>':'<span class="d"></span><span class="d y"></span><span class="d"></span><span class="addr"></span>'}</div>`;
+  return `<div class="${cls.join(' ')}">${chrome}${mediaHtml}</div>`;
+}
+const flowArrow = `<span class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v13M6 13l6 6 6-6"/></svg></span>`;
+function renderFlow(items){
+  return `<div class="flow">${items.map((it,idx)=>{
+    const [title,desc]=splitCap(it.cap);
+    const media = it.svg ? it.svg : `<img loading="lazy" src="${R(it.src)}" alt="${it.cap}">`;
+    return `<div class="flow-step">
+      <span class="flow-step__num">${String(idx+1).padStart(2,'0')}</span>
+      <div class="flow-step__eyebrow">Screen ${String(idx+1).padStart(2,'0')} of ${items.length}</div>
+      <div class="flow-step__title">${title}</div>
+      ${frameHtml(media,!!it.tall,!!it.plain)}
+      ${desc?`<div class="flow-step__desc">${desc}</div>`:''}
+      ${flowArrow}
+    </div>`;
+  }).join('')}</div>`;
+}
+const wireFlow=(keys)=>renderFlow(keys.map(k=>({...WF[k],plain:true})));
+
+/* ---------- Polaris-specific components: gauge, before/after chart, IA diagram, Q&A ---------- */
+function ringGauge(pct,label,sub,color){
+  const r=50,c=2*Math.PI*r;
+  return `<svg class="ring" viewBox="0 0 120 120" role="img" aria-label="${label} ${pct}%"><circle cx="60" cy="60" r="${r}" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="60" cy="60" r="${r}" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c*(1-pct/100)).toFixed(1)}" transform="rotate(-90 60 60)"/><text x="60" y="57" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" font-weight="700" fill="${color}">${pct}%</text><text x="60" y="74" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" letter-spacing="1" fill="var(--ink-faint)">${sub}</text></svg>`;
+}
+function spark(path,color){return `<svg class="mcard__spark" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="${path}" fill="none" stroke="${color}" stroke-width="2.4" vector-effect="non-scaling-stroke"/></svg>`;}
+function metricCard(label,val,perf,path,color){
+  const pillLabel={high:'High Performance',mod:'Moderate Performance',low:'Low Performance'}[perf];
+  return `<div class="mcard"><div class="mcard__top"><span>${label}</span><span class="pill pill--${perf}">${pillLabel}</span></div><div class="mcard__val">${val}</div>${spark(path,color)}</div>`;
+}
+function iaDiagram(){
+  return `<div class="iaflow">
+    <div class="iaflow__row">
+      <div class="iabox">Industry<span>Software / IT</span></div>
+      <span class="iaarrow">→</span>
+      <div class="iabox">Account<span>/tw</span></div>
+      <span class="iaarrow">→</span>
+      <div class="iabox iabox--accent">Project<span>Polaris</span></div>
+      <span class="iaarrow">→</span>
+      <div class="iabox">Repo</div>
+    </div>
+    <div class="iaflow__branch">
+      <div class="iabox iabox--muted">Base Line</div>
+      <span class="iaarrow">←</span>
+      <div class="iabox iabox--muted">Domain<span>(DevOps)</span></div>
+      <span class="iaarrow">↑</span>
+      <span style="font-size:.78rem;color:var(--ink-faint)">branches from Project</span>
+    </div>
+  </div>`;
+}
+function soloShot(src,cap,tall){
+  const media=`<img loading="lazy" src="${R(src)}" alt="${cap}">`;
+  return `<figure style="margin:16px 0 0">${frameHtml(media,!!tall,true)}<figcaption style="font-size:.86rem;color:var(--ink-soft);margin-top:10px;max-width:640px;line-height:1.5">${cap}</figcaption></figure>`;
+}
+/* ---------- rich hero cover (real content only, no invented metrics) ---------- */
+const MICONS = {
+  role:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.2-3.8 4-5.6 7-5.6s5.8 1.8 7 5.6"/></svg>',
+  time:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9.5h16M8 3v3.4M16 3v3.4"/></svg>',
+  client:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="1.6"/><path d="M9 7V5.4A1.4 1.4 0 0 1 10.4 4h3.2A1.4 1.4 0 0 1 15 5.4V7"/></svg>',
+  tools:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L14.7 6.3Z"/></svg>'
+};
+function polarisCover(){
+  return `<div class="cs__cover"><div class="wrap cs__cover-in"><div class="pcover" style="background:radial-gradient(circle at 78% 15%,#123844,#061a20 62%)">
+    <div class="pcover__grid">
+      <div class="pcover__left">
+        <span class="pcover__eyebrow">UX Case Study</span>
+        <div class="pcover__bar"></div>
+        <div class="pcover__logo"><img src="${R(PZ+"logo.png")}" alt="Polaris — Powered by ThoughtWorks"></div>
+        <h2 class="pcover__title">Designing a data-driven platform for engineering delivery excellence</h2>
+        <p class="pcover__lead">Polaris is a tool-assisted consulting framework, powered by ThoughtWorks, that turns raw delivery metrics into insight — helping engineering leaders see project health at a glance and act on it, without ThoughtWorks having to scale headcount to scale value.</p>
+      </div>
+      <div class="pcover__right">
+        <figure class="pcover__shot"><img src="${R(PZ+"dashboard.jpg")}" alt="Polaris Delivery-Excellence dashboard — real screen from the Lenovo UDC engagement"></figure>
+      </div>
+    </div>
+    <div class="pcover__meta">
+      <div class="pcover__mi">${MICONS.role}<div><span class="lab">My role</span><span class="val">UX Lead — end to end</span></div></div>
+      <div class="pcover__mi">${MICONS.time}<div><span class="lab">Duration</span><span class="val">2021 – 2023</span></div></div>
+      <div class="pcover__mi">${MICONS.client}<div><span class="lab">Client</span><span class="val">ThoughtWorks · Lenovo (UDC)</span></div></div>
+      <div class="pcover__mi">${MICONS.tools}<div><span class="lab">Tools</span><span class="val">Figma, Jira, Confluence</span></div></div>
+    </div>
+  </div></div></div>`;
+}
+function xactCover(){
+  return `<div class="cs__cover"><div class="wrap cs__cover-in"><div class="pcover" style="background:radial-gradient(circle at 78% 15%,#12403f,#061c1a 62%)">
+    <div class="pcover__grid">
+      <div class="pcover__left">
+        <span class="pcover__eyebrow">UX Case Study</span>
+        <div class="pcover__bar"></div>
+        <div class="pcover__logo"><img src="${R(LG+"xact.svg")}" alt="X-Act — ThoughtWorks enterprise assessment tool" style="filter:none;height:52px"></div>
+        <h2 class="pcover__title">A structured way for enterprises to assess engineering maturity</h2>
+        <p class="pcover__lead">X-Act is an enterprise assessment tool at ThoughtWorks that helps organisations evaluate maturity across capability areas — architecture, ways of working, technology, data, and design — and turn the results into a repeatable, actionable plan instead of one-off spreadsheets.</p>
+      </div>
+      <div class="pcover__right">
+        <figure class="pcover__shot"><img src="${R("assets/screens/xact_list.jpg")}" alt="X-Act assessments list — real product screen"></figure>
+      </div>
+    </div>
+    <div class="pcover__meta">
+      <div class="pcover__mi">${MICONS.role}<div><span class="lab">My role</span><span class="val">UX Lead</span></div></div>
+      <div class="pcover__mi">${MICONS.time}<div><span class="lab">Duration</span><span class="val">2021 – 2023</span></div></div>
+      <div class="pcover__mi">${MICONS.client}<div><span class="lab">Client</span><span class="val">ThoughtWorks (via HFI)</span></div></div>
+      <div class="pcover__mi">${MICONS.tools}<div><span class="lab">Tools</span><span class="val">Figma, Jira, Confluence</span></div></div>
+    </div>
+  </div></div></div>`;
+}
+function carbonChainCover(){
+  return `<div class="cs__cover"><div class="wrap cs__cover-in"><div class="pcover" style="background:radial-gradient(circle at 78% 15%,#123c2e,#061a13 62%)">
+    <div class="pcover__grid">
+      <div class="pcover__left">
+        <span class="pcover__eyebrow">UX Case Study · Ongoing</span>
+        <div class="pcover__bar"></div>
+        <div class="pcover__logo"><img src="${R(LG+"carbonchain.svg")}" alt="Carbon Chain India" style="filter:none;height:46px"></div>
+        <h2 class="pcover__title">Bringing carbon-credit markets to India's smallholder farmers</h2>
+        <p class="pcover__lead">A mobile-first MRV and trading platform connecting smallholder farmers with enterprise ESG buyers across India — designed bilingual, visual-first, and built for 2G/3G networks from day one.</p>
+      </div>
+      <div class="pcover__right">
+        <figure class="pcover__shot"><img src="${CC_THUMB}" alt="Carbon Chain India — farmer app wireframes"></figure>
+      </div>
+    </div>
+    <div class="pcover__meta">
+      <div class="pcover__mi">${MICONS.role}<div><span class="lab">My role</span><span class="val">UX/UI Designer</span></div></div>
+      <div class="pcover__mi">${MICONS.time}<div><span class="lab">Duration</span><span class="val">2024 – Present</span></div></div>
+      <div class="pcover__mi">${MICONS.client}<div><span class="lab">Client</span><span class="val">Whitesage ESG</span></div></div>
+      <div class="pcover__mi">${MICONS.tools}<div><span class="lab">Tools</span><span class="val">Figma, FigJam, Miro</span></div></div>
+    </div>
+  </div></div></div>`;
+}
+
+function kamakshiCover(){
+  return `<div class="cs__cover"><div class="wrap cs__cover-in"><div class="pcover" style="background:radial-gradient(circle at 78% 15%,#3a1505,#1a0902 62%)">
+    <div class="pcover__grid">
+      <div class="pcover__left">
+        <span class="pcover__eyebrow">UX Case Study</span>
+        <div class="pcover__bar"></div>
+        <div class="pcover__logo"><img src="${R(LG+"kamakshi.png")}" alt="Kamakshi Masala" style="filter:none;height:64px"></div>
+        <h2 class="pcover__title">Bringing tradition and trust to a Bengaluru spice brand, online</h2>
+        <p class="pcover__lead">Kamakshi Masala is known for purity, tradition, and affordability. The goal was to carry that same warmth into a clean, intuitive e-commerce experience — easier navigation, bestsellers up front, mobile login, and WhatsApp support.</p>
+      </div>
+      <div class="pcover__right">
+        <figure class="pcover__shot"><img src="${R(T+"kamakshi.jpg")}" alt="Kamakshi Masala — final responsive storefront, web and mobile"></figure>
+      </div>
+    </div>
+    <div class="pcover__meta">
+      <div class="pcover__mi">${MICONS.role}<div><span class="lab">My role</span><span class="val">UX/UI Designer</span></div></div>
+      <div class="pcover__mi">${MICONS.time}<div><span class="lab">Year</span><span class="val">2025</span></div></div>
+      <div class="pcover__mi">${MICONS.client}<div><span class="lab">Type</span><span class="val">E-commerce</span></div></div>
+      <div class="pcover__mi">${MICONS.tools}<div><span class="lab">Tools</span><span class="val">Figma, FigJam</span></div></div>
+    </div>
+  </div></div></div>`;
+}
+
+function chipFlow(items,accentIdx){
+  return `<div class="iaflow"><div class="iaflow__row">${items.map((t,i)=>`${i>0?'<span class="iaarrow">→</span>':''}<div class="iabox${i===accentIdx?' iabox--accent':''}">${t}</div>`).join('')}</div></div>`;
+}
+function howMightWe(text){ return `<div class="hmw"><p>${text}</p></div>`; }
+
+function qaList(items){
+  return `<div class="qa">${items.map((it,i)=>`<div class="qa__item"><div class="qa__q"><span class="n">Q${i+1}</span>${it[0]}</div><div class="qa__a">${it[1]}</div></div>`).join('')}</div>`;
+}
+
+const SCREENS = {
+  xact:{intro:"The assessment workspace, screen by screen — from creating an assessment through scoring capability areas to reading results.",shots:[
+    ["assets/screens/xact_list.jpg","My Assessments — every assessment with organisation, status, and date, scannable at a glance."],
+    ["assets/screens/xact_create.jpg","Create assessment — naming it and selecting the target organisation."],
+    ["assets/screens/xact_modal.jpg","New assessment — starting one over the existing list, keeping context in view."],
+    ["assets/screens/xact_modules.jpg","Capability modules — software engineering, project &amp; design, visual platform, data platform, selected as the assessment scope."],
+    ["assets/screens/xact_components.jpg","Component scoring — evaluation inside a capability area, with guidance and scoring."],
+    ["assets/screens/xact_empty.jpg","Empty state — a clear prompt when a search or filter returns no assessments."]
+  ]},
+  hexaware:{intro:"The Aspire Lifestyles mobile evaluation — each screen reviewed for usability, with the findings noted alongside.",shots:[
+    ["assets/screens/aspire_splash.jpg","Splash — clean, with a note that the background image could tie more closely to the business.","plain"],
+    ["assets/screens/aspire_explore.jpg","Explore / distance sort — flagged that sort-by-distance could confuse users.","plain"],
+    ["assets/screens/aspire_request.jpg","Request — text fields and chat/talk actions reviewed for clearer alignment.","plain"],
+    ["assets/screens/aspire_profile.jpg","My Profile — form-in-form layout reviewed; cancel/update placement noted.","plain"],
+    ["assets/screens/aspire_privacy.jpg","Privacy policy — dark-blue background flagged as heavy and hard to read.","plain"]
+  ]},
+  "dell-a11y":{intro:"The PowerProtect screens reviewed in the audit, each checked against WCAG success criteria.",shots:[
+    ["assets/screens/a11y_restore.jpg","Restore — copy selection, reviewed for contrast and focus order."],
+    ["assets/screens/a11y_db.jpg","Restore database — table semantics and keyboard operability checked."],
+    ["assets/screens/a11y_assets.jpg","Restore assets — labelling and status indicators assessed for screen-reader support."],
+    ["assets/screens/a11y_map.jpg","Map assets modal — focus trapping and dialog semantics reviewed."]
+  ]},
+  "dell-ppdm":{intro:"A cross-section of the PowerProtect Data Manager screens this process shaped.",shots:[
+    ["assets/screens/ppdm_dash.jpg","Dashboard — health, jobs, capacity, and asset-protection status at a glance."],
+    ["assets/screens/ppdm_assets.jpg","Assets — protected assets with type, policy, and status, shown with working-screen annotations."],
+    ["assets/screens/ppdm_autolog.jpg","Auto log settings — failure types, submission limits, and retry frequency."],
+    ["assets/screens/ppdm_logs.jpg","Scheduled log submission — the redlined modal handed to engineering."]
+  ]},
+  kamakshi:{intro:"From wireframes to the design system and the final UI.",shots:[
+    ["assets/screens/km_wires.jpg","Mid-fidelity wireframes — layout and content priority across the key screens.","plain tall"],
+    ["assets/screens/km_uikit.jpg","Design system — type scale, components, and the reddish-orange / navy / green palette.","plain tall"],
+    ["assets/screens/km_final.jpg","Final UI — product pages and the slide-out checkout with product images.","tall"]
+  ]},
+  chuet:{intro:"From wireframes to the live supervisor dashboards.",shots:[
+    [T+"chuet.jpg","Supervisor dashboard — live production and cycle metrics replacing paper logs."],
+    ["assets/screens/chuet_ipad.jpg","iPad layouts — wireframes for the plant-side workflow.","plain tall"],
+    ["assets/screens/chuet_final.jpg","Final UI — design elements across the admin and plant-side screens.","plain tall"]
+  ]}
+};
+
+/* ============ PROJECTS ============ */
+const projects = [
+  {
+    id:"dell-ppdm", n:"01", company:"Dell Technologies", title:"PowerProtect Data Manager", year:"2021–23",
+    accent:"#0076ce", grad:"linear-gradient(135deg,#062a4a,#0076ce)", thumb:"assets/ppdm2/cover_art.jpg",
+    heroShot:["assets/ppdm2/cover_art.jpg","Dell PowerProtect Data Manager — designing an enterprise data protection and backup experience."],
+    summary:"Enterprise UX for Dell's data-protection platform, delivered through a rigorous design-system and developer-handoff process.",
+    sub:"Enterprise UX, delivered with rigour.",
+    tech:["Enterprise UX","Design Systems","DEF / Clarity","Developer Handoff"],
+    meta:{Role:"UX Designer",Client:"Dell (via HFI)",Systems:"DEF · Clarity UI",Year:"2021–23"},
+    blocks:[
+      {h:"Overview", body:`<p><strong>PowerProtect Data Manager (PPDM)</strong> is Dell's enterprise data-protection software — backup, recovery, and log management for mission-critical infrastructure. I worked on UX within Dell's enterprise design ecosystem (via Human Factors International), designing and refining flows against an established design system.</p>`},
+      {h:"How I worked", body:`<p>The value here is the <strong>process</strong> — a mature, well-documented enterprise workflow.</p><ul><li><strong>Requirement gathering</strong> — detailed notes, changes to existing flows, refined and reviewed before build.</li><li><strong>Design &amp; prototype</strong> — structured Figma files (cover · MOM + screenshots · working screens · archive) with annotated “pink notes”.</li><li><strong>PPDM log sheet</strong> — a daily project log tracking flows, status, and call references.</li><li><strong>Communication</strong> — written email updates listing every change, with screenshots and rationale.</li><li><strong>Redlines &amp; readout notes</strong> — precise developer handoff.</li></ul>`},
+      {h:"Design system", body:`<p>Work followed the <strong>Dell Enterprise Framework (DEF)</strong>, with <strong>Clarity UI</strong> on some projects — importing the DEF library into each assignment, tracking its frequent updates, and holding to DEF voice and tone so language stayed consistent across every screen.</p>`},
+      {h:"Developer handoff", body:`<p><strong>Redlines</strong> served as a build blueprint — typography, size, weight, colour, alignment, and details on hidden or grouped elements. <strong>Readout notes</strong> captured interaction rules: on-page-load events, exceptions, business rules, DEF component references, and a control → action → system-response table.</p>`},
+      {h:"Outcome", body:`<p>Consistent, accessible enterprise screens shipped through a repeatable, auditable process — the rigour large data-protection products depend on.</p>`}
+    ]
+  },
+  {
+    id:"polaris", n:"02", company:"ThoughtWorks", title:"Polaris", year:"2021–23",
+    accent:"#0c4854", grad:"linear-gradient(135deg,#0a2f38,#0c4854)", thumb:PZ+"cover_art.jpg", tileLogo:PZ+"logo.png", customCover:polarisCover,
+    summary:"A tool-assisted consulting framework that turns engineering “fitness metrics” into business-outcome insights — built from research through to a live Lenovo engagement.",
+    sub:"Enterprise Dashboard &amp; Data Visualisation.",
+    tech:["Dashboard Redesign","Information Architecture","Data Visualisation","Admin Module","Agile Collaboration","Enterprise UX","New Feature Design"],
+    meta:{Role:"UX Lead — end to end",Client:"ThoughtWorks · Lenovo (UDC)",Scope:"Product + Admin",Duration:"2021–23"},
+    blocks:[
+      {h:"Overview", body:`<p><strong>Polaris</strong> is an enterprise platform, powered by ThoughtWorks, that consolidates engineering metrics from multiple tools into one experience — helping engineering organisations measure delivery maturity, spot bottlenecks, and drive continuous improvement, with an <strong>Admin Portal</strong> underneath to configure it. I joined it as a <strong>Senior UI/UX Designer</strong> while it was already an active enterprise product.</p><p class="pull">Polaris = Key Metrics + Business Outcomes + Remediation.</p>
+        <p>My responsibilities spanned the full lifecycle: dashboard redesign, new feature design, the Admin Portal, information architecture, data visualisation, high-fidelity UI, design system, developer handoff, design QA, stakeholder workshops — including a capability presentation delivered in Spain — and day-to-day agile collaboration with a Product Owner, Business Analyst, Engineering Manager, Project Manager, stakeholders, and 3–4 developers.</p>
+        <p style="margin-top:6px">Under the hood, Polaris pulls signal from the tools engineering teams already use and surfaces it as one picture for leadership:</p>
+        ${chipFlow(["GitHub","Jenkins","SonarQube","Business Metrics","Polaris","Engineering Leaders"],4)}`},
+      {h:"The design challenge", body:`<p>The challenge was never collecting the data — it was already flowing in from every tool. In competitive markets, ThoughtWorks also needed a way to prove its value to clients objectively, without the delivery model depending on growing headcount to grow revenue. The real problem was presenting a large volume of engineering metrics in a way an engineering leader could actually act on.</p>
+        ${howMightWe('How might we transform complex engineering metrics into <em>meaningful insights</em> that help engineering leaders make confident decisions?')}`},
+      {h:"Research &amp; discovery", body:`<p>Before a single screen was drawn, I ran structured discovery with the client to understand how their organisation actually maps engineering work to accountability — because Polaris's entire information architecture depends on getting that hierarchy right. That research shaped three concrete decisions:</p>
+        <ul><li>Confirmed the real organisational hierarchy the product needed to model, which became the backbone of Polaris's data structure.</li><li>Clarified exactly where access needed to be controlled, which shaped the Admin role model and its permissions.</li><li>Established that custom-metric creation should be gated to specific roles, not open to every teammate.</li></ul>
+        ${iaDiagram()}`},
+      {h:"Users &amp; design principles", body:`<p>Three archetypes anchored the work — strategic, analytical, and client-facing lenses on the same data. John's journey shaped the primary flow: sign in, scan every project's maturity index, drill into one repository, get a recommended next step.</p>
+        <div class="personas">
+          <div class="persona"><span class="persona__avatar" style="background:#0c4854">J</span><div class="persona__name">John</div><div class="persona__role">Global Product Manager</div><div class="persona__goal">Strategic, data-driven — wants project health at a glance.</div></div>
+          <div class="persona"><span class="persona__avatar" style="background:#f2617a">I</span><div class="persona__name">Irene</div><div class="persona__role">Principal Product Strategist</div><div class="persona__goal">Analytical — mines Polaris data for long-term improvement opportunities.</div></div>
+          <div class="persona"><span class="persona__avatar" style="background:#489ca8">A</span><div class="persona__name">Alex</div><div class="persona__role">Director of Client Services</div><div class="persona__goal">Client-facing — tracks project health against client timelines.</div></div>
+        </div>
+        <p>Day to day, the people I designed alongside were just as much a part of the work:</p>
+        ${chipFlow(["Stakeholders","Product Owner","Business Analyst","Engineering Manager","3–4 Developers","QA"],-1)}
+        <p>Two behavioural principles did the most work in the interface itself:</p>
+        <div class="principles">
+          <span class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7Z"/><circle cx="12" cy="12" r="2.6"/></svg><b>Visual hierarchy</b><span>— colour and position triage an off-track metric before anyone reads a number</span></span>
+          <span class="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12.5l2 2 4-4.5"/><circle cx="12" cy="12" r="9"/></svg><b>Recognition over recall</b><span>— the threshold always sits right beside the value</span></span>
+        </div>
+        <p>In Admin, the vault form applies <strong>progressive disclosure</strong> — account, then vault, then credentials — so a complex task never feels complex.</p>${soloShot(PZ+"progressive_disclosure.jpg","Progressive disclosure applied to the Admin vault form — a 3-step reveal instead of one long form.")}`},
+      {h:"Visual design", body:`<p>Polaris carries ThoughtWorks' identity on purpose: deep navy for authority and readability, warm coral for the ThoughtWorks mark and critical alerts, and a supporting palette pulled from the Polaris dot-mark — used sparingly, mostly in charts, so colour always carries meaning.</p>
+        <div class="swatches">
+          <div class="swatch"><span class="swatch__chip" style="background:#0c4854"></span><span class="swatch__name">Polaris Navy</span><span class="swatch__hex">#0C4854</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#f2617a"></span><span class="swatch__name">ThoughtWorks Coral</span><span class="swatch__hex">#F2617A</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#489ca8"></span><span class="swatch__name">Signal Teal</span><span class="swatch__hex">#489CA8</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#cb8522"></span><span class="swatch__name">Amber · moderate</span><span class="swatch__hex">#CB8522</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#6d9d79"></span><span class="swatch__name">Sage · high performance</span><span class="swatch__hex">#6D9D79</span></div>
+        </div>
+        <p><strong>Type:</strong> a clean grotesque (Inter-family) — bold, high-contrast headings for scanability, regular weight for supporting data, consistent 8px spacing so dense metric tables never feel cramped.</p>`},
+      {h:"The challenge", body:`<p>The single biggest problem in early reviews: <strong>delivery metrics were displayed as flat numbers</strong>, so a manager had to read and mentally compare seven figures just to gauge project health. The fix — pair every metric with a compact chart and a plain-language performance pill, so trend and status read before anyone reads a digit:</p>
+        ${(function(){
+          return `<div class="cmp">
+            <div class="cmp__col">
+              <span class="cmp__tag">Before — numbers alone</span>
+              <table class="cmp__table"><tr><td>Lead Time</td><td>15 Day(s)</td></tr><tr><td>Build Fail Rate</td><td>5%</td></tr><tr><td>Technical Debt</td><td>15 Day(s)</td></tr><tr><td>Security Warnings</td><td>8</td></tr></table>
+            </div>
+            <div class="cmp__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div class="cmp__col">
+              <span class="cmp__tag">After — at a glance</span>
+              <div class="cmp__cards">
+                ${metricCard('Lead Time','15 Day(s)','high','M0,20 C15,10 25,24 40,14 C55,6 65,18 80,10 C90,6 95,12 100,8','#6d9d79')}
+                ${metricCard('Build Fail Rate','5%','high','M0,8 C15,22 25,6 40,18 C55,26 65,10 80,16 C90,20 95,10 100,6','#6d9d79')}
+                ${metricCard('Technical Debt','15 Day(s)','mod','M0,14 C15,8 25,20 40,16 C55,10 65,22 80,14 C90,10 95,18 100,12','#cb8522')}
+                ${metricCard('Security Warnings','8 Warning(s)','mod','M0,10 C15,16 25,8 40,20 C55,14 65,6 80,12 C90,18 95,10 100,16','#cb8522')}
+              </div>
+            </div>
+          </div>`;
+        })()}
+        <div class="gaugewrap">
+          ${ringGauge(62,'Overall Maturity Index','MODERATE','#cb8522')}
+          <div class="gaugewrap__label"><b>Overall Maturity Index</b>One composite ring sits above every repository's metric grid — a number Alex can read in a hallway conversation that still traces back to seven underlying signals if he needs it.</div>
+        </div>
+        <p>The dashboard doesn't stop at the metrics Polaris ships with. Below the default charts sits an <strong>Outcome Metrics</strong> panel a team can extend themselves — customer satisfaction, revenue impact, whatever actually ties their engineering work to a business result — so the same chart-first, glance-and-act approach scales to whatever matters for that team, not just what we anticipated.</p>`},
+      {h:"The solution — screens, as a flow", body:`<p>Real screens from the Lenovo UDC engagement — the product journey, then the Admin layer that configures it.</p>
+        ${renderFlow([
+          {src:PZ+"login.jpg",cap:"SSO sign-in — single sign-on entry, no password to manage."},
+          {src:PZ+"overview.jpg",cap:"Program view — every project and repository with its maturity index, one table, one glance."},
+          {src:PZ+"dashboard.jpg",cap:"Delivery-Excellence dashboard — every metric charted, with an Outcome Metrics panel for business context."},
+          {src:PZ+"remediation.jpg",cap:"Lead-time remediation — root causes, priority, and recommended approach, so the next action is obvious."}
+        ])}
+        <p style="margin-top:34px"><strong>Admin</strong> — the configuration layer I designed to make every screen above possible: a new Lenovo project, then CI/CD, Application Life Management, and webhooks.</p>
+        ${renderFlow([
+          {src:PZ+"admin1.jpg",cap:"New project — Account Name and Vault details, captured through progressive disclosure."},
+          {src:PZ+"admin2.jpg",cap:"Repository, CI/CD &amp; webhook setup — tool, folder, and job details for each connected repository."}
+        ])}`},
+      {h:"Agile process", body:`<p>Design didn't happen upfront and then hand off — it ran inside the same sprint cycle as engineering, revisited every iteration:</p>
+        ${chipFlow(["Requirement","Discussion","Wireframes","UI Design","Review","Prototype","Dev Handoff","Sprint","QA","Release"],-1)}`},
+      {h:"Impact &amp; reflection", body:`<p>Polaris shipped as a working product for a real engagement — Lenovo's UDC team used it to track delivery health without ThoughtWorks scaling headcount to scale value. It gave ThoughtWorks an objective, data-backed way to <em>show</em> clients transformation impact, not just describe it. The redesigned dashboards improved usability and information hierarchy, gave the team reusable UI patterns for future features, and held up as the product scaled across more repositories and clients.</p><p>The lesson that stuck: <strong>a metric is only useful next to a recommended action</strong>, and information architecture done properly with the client up front is what makes an enterprise dashboard trustworthy rather than just decorative. Looking back, the biggest shift in my own practice was learning to treat a dashboard as a decision-support tool first and a data display second — every screen after that got simpler to design.</p><div class="chips">${["React & Redux","Node","Express","PostgreSQL","Jenkins","SonarQube","Docker","Kubernetes","OAuth 2.0"].map(t=>`<span class="chip">${t}</span>`).join('')}</div>`}
+    ]
+  },
+  {
+    id:"xact", n:"03", company:"ThoughtWorks", title:"X-Act Assessment Tool", year:"2021–23",
+    accent:"#1a7f8c", grad:"linear-gradient(135deg,#0d2b2c,#1a7f8c)", thumb:"assets/xact2/cover_art.jpg", tileLogo:LG+"xact.svg", customCover:xactCover,
+    summary:"An enterprise assessment tool that helps organisations evaluate maturity across capability areas and act on the results.",
+    sub:"Structured assessment for enterprise teams.",
+    tech:["UX Lead","Discovery","Enterprise UX","UI Design"],
+    meta:{Role:"UX Lead",Client:"ThoughtWorks (via HFI)",Year:"2021–23"},
+    blocks:[
+      {h:"Overview", body:`<p><strong>X-Act</strong> is an enterprise assessment tool at <strong>ThoughtWorks</strong>. As Center of Excellence Lead at HFI I led research-driven UX for it alongside Polaris — discovery, flows, and usability evaluation.</p>`},
+      {h:"The challenge", body:`<p>Organisations needed a structured, repeatable way to assess maturity across many capability areas — architecture, ways of working, technology, data, design — and then turn results into action, rather than one-off spreadsheets.</p>`},
+      {h:"What I designed", body:`<p>An assessment workspace built around clarity: a module-based evaluation broken into capability areas, component-level questions, scoring, and a clean assessments list that makes status and history scannable.</p>`},
+      {h:"Outcome", body:`<p>A scalable assessment experience contributing to ThoughtWorks' enterprise toolkit, designed for repeat use across engagements. ${note('add results/adoption if shareable')}</p>`}
+    ]
+  },
+  {
+    id:"chuet", n:"04", company:"Renault Nissan", title:"CHUET", year:"2017–20",
+    accent:"#c77d1a", grad:"linear-gradient(135deg,#2c2410,#c77d1a)", thumb:T+"chuet.jpg",
+    summary:"Renault's first digital product — a tool that transformed plant supervision by replacing paper processes with real-time analytics.",
+    sub:"Renault's first digital product, built for the factory floor.",
+    tech:["Enterprise UX","Dashboards","iPad / Web","Field Research"],
+    meta:{Role:"Assistant Manager UI/UX",Client:"Renault Nissan",Platform:"iPad / Web",Launch:"Spain"},
+    blocks:[
+      {h:"Overview", body:`<p><strong>CHUET</strong> was <strong>Renault's first digital product</strong> — an internal SaaS tool for a Spanish plant that transformed plant supervision by replacing paper processes with structured problem-solving and real-time analytics.</p>`},
+      {h:"The problem", body:`<p>Renault plant supervisors wasted hours on paper-based reporting, causing delayed repairs and lost data. The workflow was manual, slow, and impossible to analyse.</p>`},
+      {h:"The solution", body:`<p>CHUET digitizes the workflow into one intuitive platform:</p><ul><li><strong>5W1H issue reporting</strong> — structured problem entry on the floor.</li><li><strong>Real-time dashboards</strong> — live issue tracking and analytics.</li><li><strong>Offline-first</strong> — captures data and syncs when Wi-Fi is available.</li></ul><p>Built for plant supervisors, maintenance teams, operations managers, and continuous-improvement teams.</p>`},
+      {h:"My role", body:`<p>As Assistant Manager UI/UX I led UX <strong>end to end, from user interviews to delivery</strong> — responsive dashboards, journey maps, and prototyped admin and plant-side workflows across tools like DEMAIN and HSK, with usability testing and visual audits for enterprise-grade systems.</p>`},
+      {h:"Impact", body:`<p>CHUET <strong>cut reporting time by ~70%</strong> and eliminated data loss, rolling out at the Spanish plant — and proving the case for Renault's broader digital shift.</p>`}
+    ]
+  },
+  {
+    id:"hexaware", n:"05", company:"Hexaware Technologies", title:"Hexaware Engagements", year:"2020",
+    accent:"#6d5bd0", grad:"linear-gradient(135deg,#221a47,#6d5bd0)", thumb:T+"hexaware.jpg",
+    summary:"Research-led UX across five clients: Aspire Lifestyles, Liverpool Victoria, Arbella Insurance, GlaxoSmithKline, and Dubai Airport.",
+    sub:"Research, personas, flows, and wireframes across five clients.",
+    tech:["Lead Designer","User Research","Personas","Wireframing"],
+    meta:{Role:"Lead Designer",Clients:"5",Year:"2020"},
+    blocks:[
+      {h:"Overview", body:`<p>As <strong>Lead Designer at Hexaware Technologies</strong>, I ran research-driven UX across five clients in finance, insurance, and travel.</p>`},
+      {h:"What I did", body:`<p>Conducted user research and developed detailed <strong>personas, user flows, and wireframes</strong> — translating user understanding into clear product direction for each engagement.</p><ul><li>Aspire Lifestyles</li><li>Liverpool Victoria™</li><li>Arbella Insurance</li><li>GlaxoSmithKline</li><li>Dubai Airport</li></ul>`},
+      {h:"Aspire Lifestyles", body:`<p>For Aspire Lifestyles I produced a <strong>product opportunity evaluation</strong> — a structured heuristic and analysis pass with detailed findings across the mobile experience (splash, explore, request, profile, privacy). ${note('I can expand this into its own detailed sub-case study from your file')}</p>`}
+    ]
+  },
+  {
+    id:"dell-a11y", n:"06", company:"Dell Technologies", title:"Accessibility Audit", year:"2021–23",
+    accent:"#128c7e", grad:"linear-gradient(135deg,#06302b,#128c7e)", thumb:T+"dell-a11y.jpg",
+    summary:"A structured accessibility audit of Dell's data-protection product against WCAG, with prioritised recommendations.",
+    sub:"Making the experience work for everyone.",
+    tech:["Accessibility","WCAG 2.1","Audit"],
+    meta:{Role:"Accessibility / UX",Client:"Dell Technologies",Year:"2021–23"},
+    blocks:[
+      {h:"Overview", body:`<p>A structured <strong>accessibility audit</strong> of Dell's PowerProtect data-protection product, evaluated against WCAG to find and prioritise barriers for users with disabilities.</p>`},
+      {h:"Process", body:`<p>Each screen and flow was assessed against WCAG success criteria using a mix of automated and manual checks, then grouped by principle — perceivable, operable, understandable, robust.</p>`},
+      {h:"Outcome", body:`<p>The audit produced prioritised, actionable recommendations that paired each issue with a concrete fix, moving the product toward WCAG conformance. ${note('add severity counts / number of issues if shareable')}</p>`}
+    ]
+  },
+  {
+    id:"kamakshi", n:"07", company:"Kamakshi Masala", title:"Kamakshi Masala", year:"2025",
+    accent:"#d9480f", grad:"linear-gradient(135deg,#3a1505,#d9480f)", thumb:T+"kamakshi.jpg", customCover:kamakshiCover, heroShot:[T+"kamakshi.jpg","Final storefront — responsive web and mobile, with bestsellers up front."],
+    summary:"An e-commerce experience for a Bengaluru spice brand — turning a traditional, trusted brand into a seamless online presence.",
+    sub:"Tradition and trust, brought online.",
+    tech:["UX Research","Persona","E-commerce","Design System"],
+    meta:{Role:"UX/UI Designer",Type:"E-commerce",Year:"2025"},
+    blocks:[
+      {h:"Overview", body:`<p><strong>Kamakshi Masala</strong> is a Bengaluru-based spice brand known for purity, tradition, and affordability. The goal was to bring that same warmth and trust into its digital presence — a clean, intuitive e-commerce experience. User feedback pointed to clear needs: easier navigation, quick access to bestsellers, mobile login, and WhatsApp support.</p>`},
+      {h:"Research", body:`<p>I analysed direct competitors (Aachi, Sakthi, Eastern, Manna) and indirect ones (MTR, Priya, Double Horse), which exposed a clear positioning gap: <strong>wholesome, filler-free, preservative-free products with honest, premium packaging</strong>. A user survey and four interviews across South India confirmed people want authentic, homemade-style masalas with strong aroma — and will switch brands for that.</p>`},
+      {h:"Persona — Priya", body:`<p>Priya, 38, a Chennai homemaker with two kids, anchors the design. She's deeply rooted in tradition and skeptical of mass-market brands after artificial taste and acidity. She wants products that <strong>blend tradition with convenience without compromising health</strong>.</p>`},
+      {h:"Problem & solution", body:`<p class="pull">How might we help people access authentic, home-style masalas without compromising quality, health, or convenience?</p><p>The solution leans into trust:</p><ul><li><strong>Authentic recipe integration</strong> on packaging and site.</li><li>A <strong>preservative-free promise</strong> across every touchpoint.</li><li><strong>Aroma-lock packaging</strong> cues that match user preference.</li><li><strong>Brand-transparency storytelling</strong> — sourcing and methods.</li></ul>`},
+      {h:"Testing & iteration", body:`<p>Usability testing with six participants drove concrete changes: a <strong>Bestsellers section with tags</strong> on the home page, upfront pack-size selection, <strong>product images in the slide-out checkout</strong>, mobile-number login, WhatsApp support, and clearer page wayfinding.</p>`},
+      {h:"Design system", body:`<p>A warm, grounded palette carries the brand: <strong>reddish orange</strong> (warmth, energy), <strong>navy blue</strong> (trust, depth), and <strong>green</strong> (freshness, natural ingredients), set in <strong>Inter</strong> for a clean, modern, approachable feel that stays true to the brand's traditional roots.</p>`}
+    ]
+  }
+];
+
+const SKILLS = [
+  ["UX","User Research","Interviews","Personas","Journey Mapping","IA","User Flows","Wireframing","Prototyping","Usability Testing","Heuristic Evaluation","UX Strategy"],
+  ["UI","Visual Design","Mobile","Enterprise Apps","Dashboards","Responsive","Typography","Color Systems","Iconography","Grids"],
+  ["Design Systems","Component Libraries","Design Tokens","Atomic Design","Auto Layout","Variables","Documentation"],
+  ["Accessibility","WCAG","Keyboard Nav","Focus States","Contrast","Screen Readers"],
+  ["AI / ML data annotation","CVAT","Bounding Boxes","Object Detection","YOLOv8","Google Colab","Dataset Prep","YAML Config","Model Training","__HOT__"],
+  ["Tools","Figma","FigJam","Adobe XD","Miro","Maze","InVision","Illustrator","Photoshop","Jira","Confluence","SQL","Power BI"]
+];
+
+const EXPERIENCE = [
+  ["Apr 2026 – Present","Video &amp; Image Data Annotator","Freelance — CVAT annotation &amp; YOLOv8 training (Google Colab)"],
+  ["Sep 2024 – Present","UX/UI Designer","Carbon Chain India · Whitesage ESG — MRV engine &amp; sustainability dashboards"],
+  ["Aug 2021 – Nov 2023","Center of Excellence Lead","Human Factors International — Polaris &amp; X-Act (ThoughtWorks, Dell)"],
+  ["Aug 2020 – Aug 2021","User Experience Manager","OnMobile Global — Fantasy Sports, Challenges Arena, Vi CallerTunes"],
+  ["Feb 2020 – Jul 2020","Lead Designer","Hexaware Technologies — Aspire Lifestyles, LV, Arbella, GSK"],
+  ["Oct 2017 – Jan 2020","Assistant Manager UI/UX","Renault Nissan TBC India — CHUET"]
+];
+
+/* ---------- render ---------- */
+const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const mono = (s)=> s.replace(/[^A-Za-z ]/g,'').split(/\s+/).filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+
+function renderWork(){
+  document.getElementById('projCount').textContent = projects.length;
+  document.getElementById('workGrid').innerHTML = projects.map(p=>{
+    const useLogoPanel = !!p.thumbLogo;
+    const inner = useLogoPanel
+      ? `<img src="${R(p.thumbLogo)}" alt="${p.company} logo">`
+      : (p.thumb ? `<img src="${R(p.thumb)}" alt=""><div class="veil"></div>` : `<div class="dots"></div>`);
+    const badge = p.featured ? 'Featured · Live' : '';
+    const lock = `<span class="mark">${mono(p.company)}</span><span class="lk"><b>${p.title}</b><i>${p.company}</i></span>`;
+    const tileLogo = (p.tileLogo && !useLogoPanel) ? `<span class="card__badgelogo"><img src="${R(p.tileLogo)}" alt="${p.company} logo"></span>` : '';
+    return `<a class="card" href="#/case/${p.id}" style="--cardgrad:${p.grad};--accent:${accentOf(p)}">
+      <div class="card__thumb${useLogoPanel?' card__thumb--logopanel':''}">${inner}${badge?`<span class="badge">${badge}</span>`:''}<span class="card__num">${p.n}</span>
+        ${useLogoPanel?'':`<div class="lockup">${lock}</div>${tileLogo}`}</div>
+      <div class="card__body"><div class="card__row"><span class="card__title">${p.title}</span><span class="card__year">${p.year}</span></div>
+        <p class="card__desc">${p.summary}</p><div class="tags">${p.tech.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <span class="card__cta">View case study ${arrow}</span></div></a>`;
+  }).join('');
+}
+function renderSkills(){
+  document.getElementById('skills').innerHTML = SKILLS.map(row=>{
+    const hot = row.includes('__HOT__'); const items=row.slice(1).filter(x=>x!=='__HOT__');
+    return `<div class="skillrow${hot?' hot':''}"><h5>${row[0]}</h5><div class="ts">${items.map(t=>`<span class="t">${t}</span>`).join('')}</div></div>`;
+  }).join('');
+  document.getElementById('timeline').innerHTML = EXPERIENCE.map(e=>`<div class="tl"><div class="yr">${e[0]}</div><div class="ro"><b>${e[1]}</b><span>${e[2]}</span></div></div>`).join('');
+}
+
+function renderCase(id){
+  const i = projects.findIndex(p=>p.id===id);
+  if(i<0){location.hash='#/';return;}
+  const p = projects[i];
+  const prev = projects[(i-1+projects.length)%projects.length];
+  const next = projects[(i+1)%projects.length];
+  const cs = document.getElementById('caseStudy');
+  const ac = accentOf(p);
+  cs.style.setProperty('--accent',ac);
+  cs.style.setProperty('--accent-soft', `color-mix(in srgb, ${ac} 7%, #fff)`);
+  const meta = Object.entries(p.meta||{Role:"Senior UX/UI Designer",Year:p.year}).map(([k,v])=>`<div class="m"><span>${k}</span><b>${v}</b></div>`).join('');
+  const lg = LOGOS[p.id];
+  const coLine = `<div class="cs__co">${p.company}${p.featured?`<span class="pill">Live · in progress</span>`:''}</div>`;
+  const cover = p.customCover ? p.customCover() : (lg ? `<div class="cs__cover"><div class="wrap cs__cover-in"><div class="cs__coverpanel" style="background:${p.grad}"><span class="cs__coverlogo"><img src="${R(lg)}" alt="${p.company} logo"></span></div></div></div>` : '');
+  const sc = SCREENS[p.id];
+  const gallery = sc ? `<section class="blk blk--tint"><div class="wrap">
+      <div class="gallery-head"><span class="blk__n">◆</span><h3>UI screens, in detail</h3><span class="gallery-count">${sc.shots.length} screens</span></div>
+      <p class="lead" style="margin:0">${sc.intro}</p>
+      ${renderFlow(sc.shots.map(s=>{const f=s[2]||'';return {src:s[0],cap:s[1],tall:f.includes('tall'),plain:f.includes('plain')};}))}
+    </div></section>` : '';
+  const blocks = (p.blocks||[]).map((b,idx)=>`<section class="blk${idx%2?' blk--tint':''}${b.body.includes('class="hmw"')?' blk--statement':''}"><div class="wrap"><div class="blk__grid">
+      <div><div class="blk__side"><span class="blk__n">${String(idx+1).padStart(2,'0')}</span><h3>${b.h}</h3></div></div>
+      <div class="blk__body">${b.body}</div></div></div></section>`).join('');
+  const heroBand = p.heroShot ? `<div class="wrap"><figure class="heroband"><div class="heroband__frame"><img src="${R(p.heroShot[0])}" alt="${p.heroShot[1]}"></div><figcaption>${p.heroShot[1]}</figcaption></figure></div>` : '';
+  cs.innerHTML = `
+    <div class="cs__hero"><div class="wrap">
+      <a class="cs__crumb" href="#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All work</a>
+      ${coLine}
+      <h1 class="cs__title">${p.title}</h1><p class="cs__sub serif">${p.sub||p.summary}</p>
+      <div class="cs__meta">${meta}</div></div></div>
+    ${cover}
+    ${heroBand}
+    ${blocks}
+    ${gallery}
+    <div class="wrap"><nav class="cs__nav">
+      <a href="#/case/${prev.id}"><span class="lab">Previous</span><span class="ttl">${prev.title}</span></a>
+      <a class="next" href="#/case/${next.id}"><span class="lab">Next</span><span class="ttl">${next.title}</span></a></nav></div>`;
+}
+
+const home=document.getElementById('home'), csEl=document.getElementById('caseStudy');
+function route(){
+  const h=location.hash||'#/'; const m=h.match(/^#\/case\/(.+)$/);
+  if(m){home.style.display='none';csEl.style.display='block';renderCase(m[1]);window.scrollTo({top:0,behavior:'auto'});}
+  else{csEl.style.display='none';home.style.display='block';
+    if(h&&h!=='#/'&&h.length>1&&document.querySelector(h)){const el=document.querySelector(h);requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth',block:'start'}));}}
+  closeMenu();
+  requestAnimationFrame(updateProgress);
+}
+window.addEventListener('hashchange',route);
+function applyContact(){
+  document.querySelectorAll('[data-email]').forEach(a=>a.setAttribute('href','mailto:'+CONTACT.email));
+  document.querySelectorAll('[data-email-text]').forEach(a=>a.textContent=CONTACT.email);
+  document.querySelectorAll('[data-linkedin]').forEach(a=>{a.href=CONTACT.linkedin;a.target='_blank';a.rel='noopener';});
+  document.querySelectorAll('[data-resume]').forEach(a=>{a.href=CONTACT.resume;a.setAttribute('download','Annapurni_Somasundaram_Resume.pdf');});
+}
+const nav=document.getElementById('nav');
+const progressBar=document.getElementById('progress');
+function updateProgress(){
+  const h=document.documentElement;
+  const max=h.scrollHeight-h.clientHeight;
+  progressBar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+}
+addEventListener('scroll',updateProgress,{passive:true});
+const heroGlow=document.getElementById('heroGlow');
+if(heroGlow&&matchMedia('(pointer:fine)').matches){
+  const heroEl=document.querySelector('.hero');
+  heroEl.addEventListener('mousemove',(e)=>{
+    const r=heroEl.getBoundingClientRect();
+    heroGlow.style.setProperty('--gx',(e.clientX-r.left)+'px');
+    heroGlow.style.setProperty('--gy',(e.clientY-r.top)+'px');
+    heroGlow.classList.add('on');
+  });
+  heroEl.addEventListener('mouseleave',()=>heroGlow.classList.remove('on'));
+}
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+function closeMenu(){navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}
+navToggle.addEventListener('click',()=>{const o=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',o?'true':'false');});
+document.getElementById('yr').textContent=new Date().getFullYear();
+renderWork();renderSkills();applyContact();
+
+/* lightweight scroll-reveal, no external animation library needed */
+const revealIO = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('is-in'); revealIO.unobserve(en.target); } });
+},{threshold:.12,rootMargin:'0px 0px -6% 0px'}) : null;
+function wireReveals(root){
+  if(!revealIO) return;
+  const els=root.querySelectorAll('.blk,.cs__cover,.card,.fact,.tl');
+  els.forEach((el,i)=>{
+    if(el.dataset.revealed) return; el.dataset.revealed='1';
+    el.classList.add('reveal');
+    el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';
+    revealIO.observe(el);
+  });
+}
+const _renderCase = renderCase;
+renderCase = function(id){ _renderCase(id); wireReveals(document.getElementById('caseStudy')); };
+route();
+wireReveals(document.getElementById('home'));
+</script>
+</body>
+</html>
